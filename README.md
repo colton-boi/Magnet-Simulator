@@ -5,6 +5,8 @@ We strive to be a unique server in the mess that Minehut has become, and we want
 # What is Magnet Simulator
 Magnet Simulator is based off of a [Roblox game](https://www.roblox.com/games/3486025575/Magnet-Simulator) that had thousands of players. You have a magnet and have to pick up coins, sell them, and upgrade your magnet range, backpack size, and buy pets!
 
+# Our discord
+Click [here](https://discord.gg/vqhgDNqxKg) to join our discord!
 
 [![Issues](https://img.shields.io/github/issues/colton-boi/Magnet-Simulator)](https://github.com/colton-boi/Magnet-Simulator/issues)
 ![Forks](https://img.shields.io/github/forks/colton-boi/Magnet-Simulator)
