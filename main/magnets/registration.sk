@@ -1,0 +1,26 @@
+on skript load:
+    registerAllMagnets()
+
+function registerMagnet(name: text, item: item, range: number, cost: number, muliplier: number, rarity: text):
+    add {_name} to {magnets::nameList::*}
+    set {_num} to size of {magnets::nameList::*}
+    set {magnets::list::%{_num}%::name} to {_name}
+    set {magnets::list::%{_num}%::item} to {_item}
+    set {magnets::list::%{_num}%::range} to {_range}
+    set {magnets::list::%{_num}%::cost} to {_cost}
+    set {magnets::list::%{_num}%::multiplier} to {_multiplier}
+    set {magnets::list::%{_num}%::rarity} to {_rarity}
+
+function registerAllMagnets():
+    # registerMagnet("name", diamond sword, 5 (in blocks), 100, 2 (multiply coins by this), "description") if {magnets::nameList::*} doesn't contain "name"
+    registerMagnet("Rusty Magnet", , 4, 0, 1, "Common") if {magnets::nameList::*} doesn't contain "Rusty Magnet"
+    registerMagnet("Silver Magnet", iron ingot, 6, 100, 1, "Common") if {magnets::nameList::*} doesn't contain "Silver Magnet"
+    registerMagnet("Gold Magnet", gold ingot, 8, 200, 1, "Uncommon") if {magnets::nameList::*} doesn't contain "Gold Magnet"
+    registerMagnet("Diamond Magnet", diamond, 12, 1200, 1, "Uncommon") if {magnets::nameList::*} doesn't contain "Diamond Magnet"
+    registerMagnet("Emerald Magnet", emerald, 15, 3000, 1, "Uncommon") if {magnets::nameList::*} doesn't contain "Emerald Magnet"
+    registerMagnet("Long Magnet", stick, 17, 8000, 1, "Rare") if {magnets::nameList::*} doesn't contain "Long Magnet"
+    registerMagnet("Golden Long Magnet", stick with custom model data 2, 20, 35000, 2, "Rare") if {magnets::nameList::*} doesn't contain "Golden Long Magnet"
+    registerMagnet("Diamond Long Magnet", stick with custom model data 3, 23, 125000, 2, "Rare") if {magnets::nameList::*} doesn't contain "Diamond Long Magnet"
+    registerMagnet("Emerald Long Magnet", stick with custom model data 4, 26, 500000, 2, "Rare") if {magnets::nameList::*} doesn't contain "Emerald Long Magnet"
+    registerMagnet("Sapphire Long Magnet", stick with custom model data 5, 29, 1200000, 2, "Rare") if {magnets::nameList::*} doesn't contain "Sapphire Long Magnet"
+    registerMagnet("Magestic Magnet", )

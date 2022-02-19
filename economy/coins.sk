@@ -1,0 +1,22 @@
+function playerCanPickupCoin(p: player) :: boolean:
+    return getCoins({_p})+({magnets::playerInfo::multiplier::%{_p}'s uuid%}*{pets::playerInfo::multiplier::%{_p}'s uuid%}) > getMaxCoins({_p})
+
+function addCoins(p: player, a: number):
+    add {_a} to {economy::coins::%{_p}'s uuid%}
+
+function removeCoins(p: player, a: number):
+    subtract {_a} from {economy::coins::%{_p}'s uuid%}
+
+function setCoins(p: player, a: number):
+    set {economy::coins::%{_p}'s uuid%} to {_a}
+
+function getCoins(p: player) :: number:
+    return {economy::coins::%{_p}'s uuid%}
+
+function getMaxCoins(p: player) :: number:
+    return {economy::maxCoins::%{_p}'s uuid%}
+
+function setMaxCoins(p: player, a: number):
+    set {economy::maxCoins::%{_p}'s uuid%} to {_a}
+
+function 

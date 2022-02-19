@@ -1,0 +1,13 @@
+on join:
+    while player is online:
+        if playerCanPickupCoin():
+            set {_lastDistance} to {magnets::playerInfo::%player's uuid%::range} + 1
+            loop all entities:
+                loop-entity is an armor stand
+                {_lastDistance} > distance between player and loop-entity
+                metadata value "coinFor%player%" of loop-entity is true
+                set {_lastDistance} to distance between player and loop-entity
+                set {_closestCoin} to loop-entity
+            if {_lastDistance} <= {magnets::playerInfo::%player's uuid%::range}:
+                pickupCoin({_closestCoin}, player)
+        wait "%{magnets::playerInfo::%player's uuid%::cooldown} ? 20% ticks" parsed as a timespan

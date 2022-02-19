@@ -1,0 +1,35 @@
+on load:
+    execute console command "/sk reload main/lib"
+
+function showCoinInTimespan(entity: entity, ticks: number, player: player):
+    wait ("%{_ticks}% ticks") parsed as a timespan
+    showEntity({_entity}, {_player})
+
+function generateCoinsNow(locations: strings):
+    loop {_locations::*}:
+        drop 1 string with custom model data 1 at deserializeLocation(loop-value)
+
+function fillAreaWithCoins(location1: string, location2: string, amount: number):
+    set {_location1} to deserializeLocation({_location1})
+    set {_location2} to deserializeLocation({_location2})
+    set {_blocks::*} to all blocks within {_location1} and {_location2}
+    set {_maxRandomInt} to size of {_blocks::*}
+    loop {_amount} times:
+        set {_random} to location of {_blocks::%random integer from 1 to {_maxRandomInt}%}
+        add serializeLocation({_random}) to {_locations::*}
+    generateCoinNow({_locations::*})
+
+command /generateCoins [<number = 128>] <boolean = false>:
+    trigger:
+        set {_d} to player's location offset by vector 50, 0, 50
+        if arg-2 is false:
+            fillAreaWithCoins(serializeLocation(player's location), serializeLocation({_d}), arg-1)
+
+on item merge of string:
+    cancel event
+
+on item despawn of string:
+    cancel event
+
+on pickup of string:
+    cancel event

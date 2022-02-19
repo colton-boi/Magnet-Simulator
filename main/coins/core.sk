@@ -1,0 +1,6 @@
+function pickupCoin(coin: entity, p: player):
+    set {_gained} to {magnets::playerInfo::multiplier::%{_p}'s uuid%}*{pets::playerInfo::multiplier::%{_p}'s uuid%}
+    addCoins({_p}, {_gained})
+    set {_count} to size of all players
+    hideEntity({_coin})
+    showCoinInTimespan({_coin}, abs(125-{_count}-(random number from 1 to 50)), {_p})

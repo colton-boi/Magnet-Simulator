@@ -1,0 +1,11 @@
+on skript load:
+    # registerBackpack("name", diamond sword, 100, "description") if {magnets::nameList::*} doesn't contain "name"
+
+function registerBackpack(name: text, item: item, cost: number, description: string):
+    add {_name} to {magnets::nameList::*}
+    set {_num} to size of {magnets::nameList::*}
+    set {magnets::list::%{_num}%::name} to {_name}
+    set {magnets::list::%{_num}%::item} to {_item}
+    set {magnets::list::%{_num}%::distance} to {_distance}
+    set {magnets::list::%{_num}%::cost} to {_cost}
+    set {magnets::list::%{_num}%::multiplier} to {_multiplier}

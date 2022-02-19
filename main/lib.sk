@@ -1,0 +1,21 @@
+import:
+    it.unimi.dsi.fastutil.ints.IntArrayList
+
+function serializeLocation(loc: location) :: string:
+    return "%x-coord of {_loc}%,%y-coord of {_loc}%,%z-coord of {_loc}%:%world of {_loc}%"
+
+function deserializeLocation(str: string) :: location:
+    set {_spl1::*} to split {_str} at ":"
+    set {_spl2::*} to split {_spl1::1} at ","
+    return location({_spl2::1} parsed as number, {_spl2::2} parsed as number, {_spl2::3} parsed as number, world {_spl1::2})
+
+function hideEntity(e: entities, p: players):
+    loop {_e::*}:
+        add ("%entity id of loop-value%" parsed as an integer) to {_id::*}
+    set {_packet} to new play_server_entity_destroy packet
+    set field 0 of {_packet} to new IntArrayList([{_id::*}])
+    send {_p::*} packet {_packet}
+
+function showEntity(e: entities, p: players):
+    loop {_e::*}:
+        packet update loop-value for {_p::*}

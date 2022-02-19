@@ -1,0 +1,11 @@
+on skript load:
+    # registerPet("name", "TheCodingDuck", 5 (in blocks), 100, 2 (multiply coins by this), "description") if {pets::nameList::*} doesn't contain "name"
+    registerPet()
+
+function registerPet(name: text, headUser: string, cost: number, muliplier: number, description: string):
+    add {_name} to {pets::nameList::*}
+    set {_num} to size of {pets::nameList::*}
+    set {pets::list::%{_num}%::name} to {_name}
+    set {pets::list::%{_num}%::headUser} to head of {_headUser} parsed as an offline player
+    set {pets::list::%{_num}%::cost} to {_cost}
+    set {pets::list::%{_num}%::multiplier} to {_multiplier}
